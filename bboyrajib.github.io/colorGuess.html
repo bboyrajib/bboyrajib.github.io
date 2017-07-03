@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+	<head>
+		<title>Color Guessing Game</title>
+		<meta name="author" content="Rajib Roy">
+	</head>
+	<body onload="do_game()">
+		<script type="text/javascript">
+			var count=0;
+			var colors=["Violet","Indigo","Blue","Green","Yellow","Orange","Red"];
+			var finished=false;
+			function do_game(){
+				var random_int=Math.floor(Math.random()*(colors.length-1));
+				var correct_answer=colors[random_int];
+				alert("Correct answer is: "+correct_answer);
+				while(!finished){
+					count++;
+					var guess=prompt("I am thinking of one of these colors\n"+colors+"\nWhat color am I thinking of?");
+					finished=check_guess(guess.toUpperCase(),correct_answer.toUpperCase());
+					
+					}
+				}
+			function check_guess(guess,correct_answer){
+				var contains=false;
+					for(var i=0;i<colors.length;i++){
+						if(guess==colors[i].toUpperCase()){
+							contains=true;
+							break;
+						}
+					}
+					if(contains==false){
+						alert("Sorry I don't recognize your color.\n\nPlease try again");
+						return false;
+					}
+					else{
+						if(guess<correct_answer){
+							alert("Sorry, your guess is not correct.\nHint: Your color is alphabetically lower than mine.\nPlease try again.");
+							return false;
+						}
+						if(guess>correct_answer){
+							alert("Sorry, your guess is not correct.\nHint: Your color is alphabetically higher than mine.\nPlease try again.");
+							return false;
+						}
+						if(guess==correct_answer){
+							document.body.style.backgroundColor=correct_answer;
+							alert("Congratulations! You have guessed the color!\nIt took you "+count+" guesses to finish the game!\nYou can see the color in the background!");
+							return true;
+						}
+					}
+			}
+			
+		</script>
+		
+	</body>
