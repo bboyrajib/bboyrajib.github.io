@@ -11,7 +11,6 @@
 			function do_game(){
 				var random_int=Math.floor(Math.random()*(colors.length-1));
 				var correct_answer=colors[random_int];
-				alert("Correct answer is: "+correct_answer);
 				while(!finished){
 					count++;
 					var guess=prompt("I am thinking of one of these colors\n"+colors+"\nWhat color am I thinking of?");
