@@ -1,11 +1,21 @@
 {
   "files": {
-    "main.css": "./static/css/main.4e85056b.chunk.css",
-    "main.js": "./static/js/main.5227a8b0.chunk.js",
+    "main.css": "./static/css/main.1f9d5eef.chunk.css",
+    "main.js": "./static/js/main.0c8df95e.chunk.js",
     "runtime~main.js": "./static/js/runtime~main.d653cc00.js",
-    "static/js/2.cbcafd2d.chunk.js": "./static/js/2.cbcafd2d.chunk.js",
+    "static/js/2.9bbfb3f2.chunk.js": "./static/js/2.9bbfb3f2.chunk.js",
     "index.html": "./index.html",
-    "precache-manifest.5ce03fc545d553fb81bc38c6afd53011.js": "./precache-manifest.5ce03fc545d553fb81bc38c6afd53011.js",
-    "service-worker.js": "./service-worker.js"
+    "precache-manifest.7eaf77a989e4585871c6e9f472b6e9c3.js": "./precache-manifest.7eaf77a989e4585871c6e9f472b6e9c3.js",
+    "service-worker.js": "./service-worker.js",
+    "static/media/Donlon.png": "./static/media/Donlon.6513af62.png",
+    "static/media/Enchai.png": "./static/media/Enchai.1401d00a.png",
+    "static/media/Jebing.png": "./static/media/Jebing.d45dffae.png",
+    "static/media/Lerbin.png": "./static/media/Lerbin.be0b4004.png",
+    "static/media/Pingasor.png": "./static/media/Pingasor.d98d786a.png",
+    "static/media/Sapir.png": "./static/media/Sapir.2bf5a066.png",
+    "static/media/SpacePod.png": "./static/media/SpacePod.c287dd04.png",
+    "static/media/SpaceRocket.png": "./static/media/SpaceRocket.65bc3c0c.png",
+    "static/media/SpaceShip.png": "./static/media/SpaceShip.205da655.png",
+    "static/media/SpaceShuttle.png": "./static/media/SpaceShuttle.5b65990b.png"
   }
 }
