@@ -3,17 +3,17 @@ window.onload = function(){
     	$("#imgUpload").click();
 	});
 
-	var firstName = askFirstName();
-	var lastName = askLastName();
+	var firstName = askFirstName("");
+	var lastName = askLastName("");
 	document.getElementById("fullName").innerText = firstName+" "+lastName;	//concatenation
 
-	var dob = askDOB();
+	var dob = askDOB("");
 	document.getElementById("dob").innerText = dob;
 
-	var age = calculateAge(dob);
+	var age = calculateExactAge(dob);
 	document.getElementById("age").innerText = age;
 
-	var address = askAddress();												//string variable
+	var address = askAddress("");												//string variable
 	document.getElementById("address").innerText = address;
 
 	document.getElementById("isPremiumMem").innerText = generateMembershipDetails();
@@ -50,36 +50,45 @@ window.onload = function(){
 };
 
 function changeProfilePic(uploader) {
+
     if ( uploader.files && uploader.files[0] ){
           $('#profileImage').attr('src', 
              window.URL.createObjectURL(uploader.files[0]) );
     }
 }
 
-function askFirstName(){														//function
-	var input = prompt("Enter First Name");										//prompt
+function askFirstName(error){
+	if(error!=="")
+		error=error+"\n";														//function
+	var input = prompt(error+"Enter First Name :");										//prompt
 	if(input===undefined || input==="" || input===null)							//condition
-		return askFirstName();
+		return askFirstName("Error: First Name cannot be empty!");
 	else
 		return input;
 }
 
-function askLastName(){
-	var input = prompt("Enter Last Name");										//prompt
+function askLastName(error){
+	if(error!=="")
+		error=error+"\n";	
+	var input = prompt(error+"Enter Last Name :");										//prompt
 	if(input===undefined || input==="" || input===null)
-		return askLastName();
+		return askLastName("Error: Last Name cannot be empty!");
 	else
 		return input;
 }
 
-function askDOB(){
-	var input = prompt("Enter Date of Birth (mm/dd/yyyy)");						//prompt
+function askDOB(error){
+	if(error!=="")
+		error=error+"\n";	
+	var input = prompt(error+"Enter Date of Birth (mm/dd/yyyy) :");						//prompt
 	if(input===undefined || input==="" || input===null)
-		return askDOB();
+		return askDOB("Error: Date of Birth cannot be empty!");
 	else{
 		var isValidDate = new Date(input);
 		if(isValidDate=="Invalid Date")
-			return askDOB();
+			return askDOB("Error: Date of Birth provided is invalid!");
+		else if((new Date()-isValidDate)<0)
+			return askDOB("Error: Date of Birth cannot be a future date!");
 		else
 			return input;
 	}
@@ -94,10 +103,59 @@ function calculateAge(dob){
 	return years+"y "+months+"m";
 }
 
-function askAddress(){
-	var input = prompt("Enter Full Address");									//prompt
+function calculateExactAge(dob){
+	var nowDate = new Date(new Date().setHours(0, 0, 0, 0));
+
+    var dobDate = new Date(dob);
+    if ((nowDate - dobDate)===0) {
+      return "Newborn";
+    }
+
+    var years = nowDate.getFullYear() - dobDate.getFullYear();
+    var months = nowDate.getMonth() - dobDate.getMonth();
+    var days = nowDate.getDate() - dobDate.getDate();
+
+    // Work out the difference in months.
+    months += years * 12;
+    if (days < 0) {
+      months -= 1;
+    }
+    // Now add those months to the date of birth.
+    dobDate.setMonth(dobDate.getMonth() + months);
+    // Calculate the difference in milliseconds.
+    var diff = nowDate - dobDate;
+    // Divide that by 86400 to get the number of days.
+    var days = Math.round(diff / 86400 / 1000);
+    // Now convert months back to years and months.
+    years = parseInt(months / 12);
+    months -= (years * 12);
+    // Format age 
+    var text = "";
+    if (years) {
+      text = years + (years > 1 ? "y" : "y");
+    }
+    if (months) {
+      if (text.length) {
+        text = text + " ";
+      }
+      text = text + months + (months > 1 ? "m" : "m")
+    }
+    if (days) {
+      if (text.length) {
+        text = text + " ";
+      }
+      text = text + days + (days > 1 ? "d" : "d")
+    }
+    
+    return text;
+}
+
+function askAddress(error){
+	if(error!=="")
+		error=error+"\n";	
+	var input = prompt(error+"Enter Full Address :");									//prompt
 	if(input===undefined || input==="" || input===null)
-		return askAddress();
+		return askAddress("Error: Address cannot be empty!");
 	else
 		return input;
 }
