@@ -85,6 +85,14 @@
 		font-size:15px;
 	}
 
+	#imgAndName:hover{
+		box-shadow: 0 1rem 3rem rgba(0,0,0,.175)!important;
+	}
+
+	#otherDetails:hover{
+		box-shadow: 0 1rem 3rem rgba(0,0,0,.175)!important;
+	}
+
 	@keyframes fadein {
 	  from {bottom: -30px; opacity: 0;}
 	  to {bottom: 0px; opacity: 1;}

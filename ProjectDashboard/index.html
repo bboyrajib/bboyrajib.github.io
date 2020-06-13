@@ -35,13 +35,13 @@
 				<div class="container">
 					<div class="row">
 						<div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-6" style="margin-bottom:5%;">
-							<div style="display:none;" class="card" id="customerDetailsCard">
+							<div style="display:none;" class="shadow-lg card" id="customerDetailsCard">
 								<h4 class="card-header sectionHeaders" style="background:linear-gradient(to right, #4568dc, #b06ab3)">Customer Details</h4>
-								<div style="max-height: 320px" class="card-body" id="customerDetails">
+								<div style="background:#f3f3f3;max-height: 320px" class="card-body" id="customerDetails">
 									<div class="row">
-										<div class="card col-md-5" style="min-height:280px; margin-left:2.5%;margin-right:3.5%;border:0.5px solid #7c69c7;">
+										<div id="imgAndName" class="card col-md-5" style="min-height:280px; margin-left:2.5%;margin-right:3.5%;border:0.5px solid #7c69c7;">
 
-											<div style="margin-top:10%;display: block; margin-left:auto;margin-right:auto;" id="profile-container">
+											<div class="shadow" style="margin-top:10%;display: block; margin-left:auto;margin-right:auto;" id="profile-container">
 											   <img data-toggle="tooltip" title="Click to change Customer Image" alt="Customer Image" width="175" height="175" id="profileImage" src="images/profile.png" onclick="" />
 											   <input style="display:none;" type="file" id="imgUpload" accept="image/*" onchange="changeProfilePic(this);" />
 											</div>
@@ -49,7 +49,7 @@
 												<b><span id="fullName"></span></b>
 											</div>
 										</div>
-										<div class="card col-md-6" style="min-height:280px;border:0.5px solid #7c69c7;text-align: right;font-weight:500;">
+										<div id="otherDetails" class="card col-md-6" style="min-height:280px;border:0.5px solid #7c69c7;text-align: right;font-weight:500;">
 											<div class="my-3">
 												<span id="dob"></span>&nbsp;&nbsp;
 												<i class="faColor fa fa-calendar fa-lg fa-fw"></i>
@@ -58,11 +58,11 @@
 												<span id="age"></span>&nbsp;&nbsp;
 												<i class="faColor fa fa-birthday-cake fa-lg fa-fw"></i>
 											</div>
-											<div class="my-3">
+											<div class="my-3"><a target="_blank" id="maps" style="cursor:pointer;text-decoration: none;">
 												<i class="faColor fa fa-map-marker fa-lg fa-fw"></i>
 												<div style="margin-right:42px;margin-top: -25px;overflow:scroll;max-height:95px;">
 													<span id="address"></span>
-												</div>
+												</div></a>
 											</div>
 											<div class="my-2">
 												<span id="isPremiumMem"></span>&nbsp;&nbsp;
@@ -74,7 +74,7 @@
 							</div>
 						</div>
 						<div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-6">
-							<div style="display:none;" class="card" id="customerOrdersCard">
+							<div style="display:none;" class="shadow-lg card" id="customerOrdersCard">
 								<h4 class="card-header sectionHeaders" style="background:linear-gradient(to right, #ff512f, #dd2476)">Transactions</h4>
 								
 									<div style="max-height: 320px;" class="card-body" id="customerOrders">

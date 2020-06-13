@@ -15,6 +15,7 @@ window.onload = function(){
 
 	var address = askAddress("");												//string variable
 	document.getElementById("address").innerText = address;
+	document.getElementById("maps").href="https://google.com/maps/place/"+address;
 
 	document.getElementById("isPremiumMem").innerText = generateMembershipDetails();
 
