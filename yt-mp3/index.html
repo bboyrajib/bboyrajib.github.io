@@ -1,0 +1,37 @@
+<html>
+	<head>
+		
+	</head>
+	<body class="body">
+		<div style="padding:20px;display:flex; flex-direction: column; align-items: center;">
+			<input required id="vid" placeholder="Enter YT videoID" />
+			<br>
+			<button onclick="setAudioSource()">Go!</button>	
+			<br>		
+			<audio id="youtube" controls>
+			</audio>
+		</div>
+		
+		
+		<script type="text/javascript">
+			// function setAudioSource(){
+			// 	var id = document.getElementById("vid").value;
+			// 	fetch("https://yt-mp3-uri.herokuapp.com/api/mp3URL?id=" + id).then(response => {
+			// 		if (response.ok) {
+			// 			response.json().then(data => {
+			// 				  var youtubeAudio = document.getElementById('youtube');
+			// 		    	  youtubeAudio.src = data.message.uri;
+			// 			});
+			// 		}
+			// 	});
+			// }
+			function setAudioSource(){
+				var id = document.getElementById("vid").value;
+				//window.location.href = `http://localhost:4000/downloadmp3?url=${id}`;
+				var youtubeAudio = document.getElementById('youtube');
+			 	youtubeAudio.src = `https://yt-mp3-uri-node.herokuapp.com/downloadmp3?url=${id}`;
+			 	youtubeAudio.play();
+			}
+		</script>
+	</body>
+</html>
