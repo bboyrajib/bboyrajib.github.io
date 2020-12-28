@@ -1,14 +1,14 @@
 <html>
 	<head>
-		
+		<link rel="icon">
 	</head>
 	<body class="body">
-		<div style="padding:20px;display:flex; flex-direction: column; align-items: center;">
-			<input required id="vid" placeholder="Enter YT videoID" />
+		<div style="top:50%;padding:20px;display:flex; flex-direction: column; align-items: center;">
+			<input required id="vid" placeholder="Enter a valid YT videoID/URL" />
 			<br>
 			<button onclick="setAudioSource()">Go!</button>	
 			<br>		
-			<audio id="youtube" controls>
+			<audio id="youtube" controls autoplay>
 			</audio>
 		</div>
 		
@@ -26,11 +26,11 @@
 			// 	});
 			// }
 			function setAudioSource(){
+
 				var id = document.getElementById("vid").value;
-				//window.location.href = `http://localhost:4000/downloadmp3?url=${id}`;
 				var youtubeAudio = document.getElementById('youtube');
-			 	youtubeAudio.src = `https://yt-mp3-uri-node.herokuapp.com/downloadmp3?url=${id}`;
-			 	youtubeAudio.play();
+			 	youtubeAudio.src = `https://yt-mp3-uri-node.herokuapp.com/getAudio?q=${id}`;
+
 			}
 		</script>
 	</body>
