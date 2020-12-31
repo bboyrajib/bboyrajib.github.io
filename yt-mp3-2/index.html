@@ -14,7 +14,7 @@
 		
 		
 		<script type="text/javascript">
-				async function postData(url = '', data = {}) {
+			async function postData(url = '', data = {}) {
 				  const response = await fetch(url, {
 				    method: 'POST', 
 				    headers: {
@@ -23,30 +23,18 @@
 				    referrerPolicy: 'strict-origin-when-cross-origin', 
 				    body: JSON.stringify(data)
 				  });
-				  return response.json(); // parses JSON response into native JavaScript objects
+				  return response.json();
 				}
-			 function setAudioSource(){
+			function setAudioSource(){
 			 	var id = document.getElementById("vid").value;
-			 	postData('http://in.api.shareplay.ml/v2/getAudioURL', { "id": id })
+			 	postData('https://in.api.shareplay.ml/v2/getAudioURL', { "id": id })
 				  .then(data => {
-				    console.log(data); // JSON data parsed by `data.json()` call
+				    console.log(data);
+				    var youtubeAudio = document.getElementById('youtube'); 
+				    youtubeAudio.src = data.message.uri;
+				    youtubeAudio.play();
 				  });
-			 	// fetch("https://yt-mp3-uri.herokuapp.com/api/mp3URL?id=" + id).then(response => {
-			 	// 	if (response.ok) {
-			 	// 		response.json().then(data => {
-			 	// 			  var youtubeAudio = document.getElementById('youtube');
-			 	// 	    	  youtubeAudio.src = data.message.uri;
-			 	// 		});
-			 	// 	}
-			 	// });
 			 }
-			// function setAudioSource(){
-
-			// 	var id = document.getElementById("vid").value;
-			// 	var youtubeAudio = document.getElementById('youtube');
-			//  	youtubeAudio.src = `https://yt-mp3-uri-node.herokuapp.com/getAudio?q=${id}`;
-
-			// }
 		</script>
 	</body>
 </html>
