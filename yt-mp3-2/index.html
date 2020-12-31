@@ -20,17 +20,15 @@
 				    headers: {
 				      'Content-Type': 'application/json'
 				    },
+				    referrerPolicy: 'strict-origin-when-cross-origin', 
 				    body: JSON.stringify(data)
 				  });
 				  return response.json();
 				}
 			function setAudioSource(){
 			 	var id = document.getElementById("vid").value;
-			 	var data = {};
-			 	data["id"] = id;
-			 	postData('https://in.api.shareplay.ml/v2/getAudioURL', data)
+			 	postData('https://in.api.shareplay.ml/v2/getAudioURL', { "id": id })
 				  .then(data => {
-				    console.log(data);
 				    var youtubeAudio = document.getElementById('youtube'); 
 				    youtubeAudio.src = data.message.uri;
 				    youtubeAudio.play();
