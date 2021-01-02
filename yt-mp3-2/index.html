@@ -14,26 +14,7 @@
 		
 		
 		<script type="text/javascript">
-			async function postData(url = '', data = {}) {
-				  const response = await fetch(url, {
-				    method: 'POST', 
-				    headers: {
-				      'Content-Type': 'application/json'
-				    },
-				    referrerPolicy: 'strict-origin-when-cross-origin', 
-				    body: JSON.stringify(data)
-				  });
-				  return response.json();
-				}
-			function setAudioSource(){
-			 	var id = document.getElementById("vid").value;
-			 	postData('https://in.api.shareplay.ml/v2/getAudioURL', { "id": id })
-				  .then(data => {
-				    var youtubeAudio = document.getElementById('youtube'); 
-				    youtubeAudio.src = data.message.uri;
-				    youtubeAudio.play();
-				  });
-			 }
+			var _0x38be=['1uovUyC','51998bFlqjg','52615vVghqx','stringify','204183FGgxDS','src','6002GuBTtD','strict-origin-when-cross-origin','then','1zyAWXv','vid','30658JbFHSh','36951aUpceD','value','POST','play','217452tjXnAW','json','application/json','https://in.api.shareplay.ml/v2/getAudioURL','4WOfsqL'];var _0x193f=function(_0x52ff16,_0x2ed6d8){_0x52ff16=_0x52ff16-0x154;var _0x38be0c=_0x38be[_0x52ff16];return _0x38be0c;};(function(_0x4f7c2e,_0x54a3ce){var _0x18e1ae=_0x193f;while(!![]){try{var _0x117dc3=-parseInt(_0x18e1ae(0x161))+-parseInt(_0x18e1ae(0x163))*-parseInt(_0x18e1ae(0x15c))+parseInt(_0x18e1ae(0x15e))+parseInt(_0x18e1ae(0x15f))+parseInt(_0x18e1ae(0x154))*-parseInt(_0x18e1ae(0x15d))+-parseInt(_0x18e1ae(0x168))*-parseInt(_0x18e1ae(0x166))+parseInt(_0x18e1ae(0x158));if(_0x117dc3===_0x54a3ce)break;else _0x4f7c2e['push'](_0x4f7c2e['shift']());}catch(_0x5a5b23){_0x4f7c2e['push'](_0x4f7c2e['shift']());}}}(_0x38be,0x211ad));async function postData(_0x234c9b='',_0x2dfdfb={}){var _0xbe5730=_0x193f;const _0x4f95e1=await fetch(_0x234c9b,{'method':_0xbe5730(0x156),'headers':{'Content-Type':_0xbe5730(0x15a)},'referrerPolicy':_0xbe5730(0x164),'body':JSON[_0xbe5730(0x160)](_0x2dfdfb)});return _0x4f95e1[_0xbe5730(0x159)]();}function setAudioSource(){var _0x1e13c3=_0x193f,_0x48becd=document['getElementById'](_0x1e13c3(0x167))[_0x1e13c3(0x155)];postData(_0x1e13c3(0x15b),{'id':_0x48becd})[_0x1e13c3(0x165)](_0x4c1dd5=>{var _0x35af71=_0x1e13c3,_0x5d2910=document['getElementById']('youtube');_0x5d2910[_0x35af71(0x162)]=_0x4c1dd5['message']['uri'],_0x5d2910[_0x35af71(0x157)]();});}
 		</script>
 	</body>
 </html>
